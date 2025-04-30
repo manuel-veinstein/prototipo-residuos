@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gestión de Residuos UNAM</title>
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background: #eef2f3; }
+    header { background: #004d3c; color: white; padding: 1em; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+    main { padding: 2em; max-width: 800px; margin: auto; }
+    .formulario, .dashboard { background: white; padding: 1.5em; margin-bottom: 2em; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    label { display: block; margin-top: 1em; font-weight: 600; }
+    input, select, textarea { width: 100%; padding: 0.5em; margin-top: 0.3em; border: 1px solid #bbb; border-radius: 5px; font-size: 1em; }
+    button { margin-top: 1.5em; padding: 0.8em 1.5em; background: #007a5e; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; }
+    button:hover { background: #005f47; }
+    .resultados { margin-top: 1.5em; background: #f0f9f0; padding: 1em; border-left: 5px solid #2e7d32; display: none; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Plataforma de Reporte de Residuos - UNAM</h1>
+    <p>Prototipo funcional para mejorar la eficiencia del reciclaje y recolección</p>
+  </header>
+  <main>
+    <section class="formulario">
+      <h2>Formulario de Reporte</h2>
+      <form id="reporteForm">
+        <label for="ubicacion">Ubicación del punto:</label>
+        <select id="ubicacion" name="ubicacion" required>
+          <option value="">--Seleccione--</option>
+          <option value="Facultad de Ingeniería">Facultad de Ingeniería</option>
+          <option value="Biblioteca Central">Biblioteca Central</option>
+          <option value="Cafetería Principal">Cafetería Principal</option>
+          <option value="Otros">Otros</option>
+        </select>
+
+        <label for="tipo">Tipo de residuo:</label>
+        <select id="tipo" name="tipo" required>
+          <option value="">--Seleccione--</option>
+          <option value="Orgánico">Orgánico</option>
+          <option value="Plástico">Plástico</option>
+          <option value="Papel">Papel</option>
+          <option value="Metal">Metal</option>
+          <option value="Vidrio">Vidrio</option>
+        </select>
+
+        <label for="descripcion">Descripción del problema:</label>
+        <textarea id="descripcion" name="descripcion" rows="4" required></textarea>
+
+        <button type="submit">Enviar Reporte</button>
+      </form>
+      <div class="resultados" id="resultadoSimulado"></div>
+    </section>
+
+    <section class="dashboard">
+      <h2>Indicadores (Simulados)</h2>
+      <ul>
+        <li><strong>Reportes totales esta semana:</strong> 25</li>
+        <li><strong>Tiempo promedio de atención:</strong> 5.2 horas</li>
+        <li><strong>Zona más reportada:</strong> Facultad de Ingeniería</li>
+        <li><strong>Tipo más común:</strong> Plástico</li>
+        <li><strong>Reducción estimada de tiempo tras uso del sistema:</strong> 18%</li>
+        <li><strong>Aumento en volumen de residuos reciclables recuperados:</strong> 22%</li>
+      </ul>
+    </section>
+  </main>
+
+  <script>
+    const form = document.getElementById('reporteForm');
+    const resultado = document.getElementById('resultadoSimulado');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const ubicacion = document.getElementById('ubicacion').value;
+      const tipo = document.getElementById('tipo').value;
+      const descripcion = document.getElementById('descripcion').value;
+
+      resultado.style.display = 'block';
+      resultado.innerHTML = `
+        <strong>Reporte registrado:</strong><br>
+        <ul>
+          <li><strong>Ubicación:</strong> ${ubicacion}</li>
+          <li><strong>Tipo de residuo:</strong> ${tipo}</li>
+          <li><strong>Descripción:</strong> ${descripcion}</li>
+        </ul>
+        <p>Este reporte ha sido simulado correctamente. En una versión futura, estos datos se almacenarían en una base de datos real para su análisis.</p>
+      `;
+
+      form.reset();
+    });
+  </script>
+</body>
+</html>
