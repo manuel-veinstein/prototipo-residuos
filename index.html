@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gestión de Residuos UNAM</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f5f5f5; }
+    header { background: #006341; color: white; padding: 1em; text-align: center; }
+    main { padding: 2em; }
+    .formulario, .dashboard { background: white; padding: 1em; margin-bottom: 2em; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    label { display: block; margin-top: 1em; }
+    input, select, textarea { width: 100%; padding: 0.5em; margin-top: 0.3em; border: 1px solid #ccc; border-radius: 4px; }
+    button { margin-top: 1em; padding: 0.7em 1.5em; background: #006341; color: white; border: none; border-radius: 4px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Plataforma de Reporte de Residuos - UNAM</h1>
+    <p>Prototipo funcional para mejorar la eficiencia del reciclaje</p>
+  </header>
+  <main>
+    <section class="formulario">
+      <h2>Formulario de Reporte</h2>
+      <form>
+        <label for="ubicacion">Ubicación del punto:</label>
+        <select id="ubicacion" name="ubicacion">
+          <option value="facultad">Facultad de Ingeniería</option>
+          <option value="biblioteca">Biblioteca Central</option>
+          <option value="cafeteria">Cafetería Principal</option>
+          <option value="otros">Otros</option>
+        </select>
+
+        <label for="tipo">Tipo de residuo:</label>
+        <select id="tipo" name="tipo">
+          <option value="organico">Orgánico</option>
+          <option value="plastico">Plástico</option>
+          <option value="papel">Papel</option>
+          <option value="metal">Metal</option>
+          <option value="vidrio">Vidrio</option>
+        </select>
+
+        <label for="descripcion">Descripción del problema:</label>
+        <textarea id="descripcion" name="descripcion" rows="4"></textarea>
+
+        <label for="imagen">Subir evidencia (opcional):</label>
+        <input type="file" id="imagen" name="imagen" />
+
+        <button type="submit">Enviar Reporte</button>
+      </form>
+    </section>
+
+    <section class="dashboard">
+      <h2>Indicadores (Demo)</h2>
+      <p><strong>Reportes totales esta semana:</strong> 25</p>
+      <p><strong>Promedio de atención (horas):</strong> 5.2</p>
+      <p><strong>Zona más reportada:</strong> Facultad de Ingeniería</p>
+      <p><strong>Tipo más común:</strong> Plástico</p>
+    </section>
+  </main>
+</body>
+</html>
